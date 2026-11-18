@@ -4,13 +4,17 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  packages: write
+
 env:
   IMAGE_REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
 
     steps:
       - name: Checkout full repository
